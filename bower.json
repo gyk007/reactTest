@@ -1,0 +1,20 @@
+{
+  "name": "1",
+  "description": "react-test",
+  "main": "index.html",
+  "authors": [
+    "AZhyk"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.3.2"
+  }
+}

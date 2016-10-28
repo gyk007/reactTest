@@ -1,0 +1,20 @@
+{
+  "name": "react-test",
+  "version": "1.0.0",
+  "description": "react-test",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "AZhyk",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-react": "^3.1.0"
+  }
+}
