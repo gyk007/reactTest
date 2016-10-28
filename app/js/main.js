@@ -20682,6 +20682,8 @@ var Article = React.createClass({displayName: "Article",
 			bigText = this.props.data.bigText,
 			visible = this.state.visible;
 
+			console.log('render', this);
+
 		return (
 			React.createElement("div", {className: "article"}, 
 				React.createElement("p", {className: "news__author"}, author, ":"), 
@@ -20701,7 +20703,11 @@ var News = React.createClass({displayName: "News",
 	propTypes: {
 		data: React.PropTypes.array.isRequired
 	},
-
+	getInitialState: function(){
+		return {
+			counter: 0
+		}
+	},
 	render: function() {
 		var data = this.props.data;
 		var newsTemplate;
@@ -20720,17 +20726,28 @@ var News = React.createClass({displayName: "News",
 		return (
 			React.createElement("div", {className: "news"}, 
 				newsTemplate, 
-				React.createElement("b", {className: data.length > 0 ? '' : 'none'}, "Всего новостей: ", data.length)
+				React.createElement("b", {className: data.length > 0 ? '' : 'none'}, 
+					"Всего новостей: ", data.length
+				)
 			)
 		);
 	}
 });
 
+var TestInput = React.createClass({displayName: "TestInput",
+	render: function(){
+		return(
+			React.createElement("input", {className: "test-input", value: "введите значение"})
+		);
+	}
+})
+
 var App = React.createClass({displayName: "App",
 	render: function(){
 		return(
 			React.createElement("div", {className: "app"}, 
-			"Новости", 
+			React.createElement("h3", null, "Новости"), 
+			React.createElement(TestInput, null), 
 			React.createElement(News, {data: my_news}), " "/*свойство data*/
 			)
 		);

@@ -44,6 +44,8 @@ var Article = React.createClass({
 			bigText = this.props.data.bigText,
 			visible = this.state.visible;
 
+			console.log('render', this);
+
 		return (
 			<div className="article">
 				<p className="news__author">{author}:</p>
@@ -63,7 +65,11 @@ var News = React.createClass({
 	propTypes: {
 		data: React.PropTypes.array.isRequired
 	},
-
+	getInitialState: function(){
+		return {
+			counter: 0
+		}
+	},
 	render: function() {
 		var data = this.props.data;
 		var newsTemplate;
@@ -82,17 +88,41 @@ var News = React.createClass({
 		return (
 			<div className="news">
 				{newsTemplate}
-				<b className ={data.length > 0 ? '' : 'none'}>Всего новостей: {data.length}</b>
+				<b className={data.length > 0 ? '' : 'none'}>
+					Всего новостей: {data.length}
+				</b>
 			</div>
 		);
 	}
 });
 
+var TestInput = React.createClass({
+	getIntialState: function() {
+		return {
+			myValue: ''
+		};
+	},
+	onChangeHandler: function(e) {
+		this.setState({myValue: e.target.value})
+	},
+	render: function(){
+		return(
+			<input
+			className='test-input'
+			value='введите значение'
+			onChange={this.onChangeHandler}
+			placeholder='введите значение'
+			/>
+		);
+	}
+})
+
 var App = React.createClass({
 	render: function(){
 		return(
 			<div className="app">
-			Новости
+			<h3>Новости</h3>
+			<TestInput/>
 			<News data={my_news} /> {/*свойство data*/}
 			</div>
 		);
